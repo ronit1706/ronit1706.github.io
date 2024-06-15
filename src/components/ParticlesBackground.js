@@ -8,6 +8,7 @@ const ParticlesBackground = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
+    // Set initial canvas dimensions and resize event listener
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -17,9 +18,10 @@ const ParticlesBackground = () => {
         if (particle.x > canvas.width) particle.x = canvas.width;
         if (particle.y > canvas.height) particle.y = canvas.height;
       });
-
-      init(); // Reinitialize particles after resize
     };
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas(); // Initial resize to set dimensions
 
     class Particle {
       constructor(x, y, radius, color, velocity) {
@@ -64,7 +66,7 @@ const ParticlesBackground = () => {
 
     function init() {
       particles = [];
-      for (let i = 0; i < 50; i++) {
+      for (let i = 0; i < 100; i++) {
         const radius = Math.random() * 2 + 0.5;
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
@@ -100,7 +102,7 @@ const ParticlesBackground = () => {
           const dy = p2.y - p1.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 100) { // Draw line if particles are close enough
+          if (distance < 100) {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
@@ -113,7 +115,6 @@ const ParticlesBackground = () => {
 
     init();
     animate();
-    window.addEventListener('resize', resizeCanvas);
 
     return () => {
       particles = [];
@@ -121,7 +122,7 @@ const ParticlesBackground = () => {
     };
   }, []);
 
-  return <canvas ref={canvasRef} style={{ position: 'fixed', top: 0, left: 0, zIndex: -1 }} />;
+  return <canvas ref={canvasRef} style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: -1 }} />;
 };
 
 export default ParticlesBackground;
