@@ -9,8 +9,18 @@ const ParticlesBackground = () => {
     const ctx = canvas.getContext('2d');
 
     // Set initial canvas dimensions
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    const resizeCanvas = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Adjust particle positions if they are outside new canvas dimensions
+      particles.forEach(particle => {
+        if (particle.x > canvas.width) particle.x = canvas.width;
+        if (particle.y > canvas.height) particle.y = canvas.height;
+      });
+
+      init(); // Reinitialize particles after resize
+    };
 
     // Particle class
     class Particle {
@@ -21,7 +31,7 @@ const ParticlesBackground = () => {
         this.color = color;
         this.velocity = velocity;
         this.alpha = 1; // Transparency for trailing effect
-        this.fadeOutRate = 0.00005; // Rate at which alpha decreases
+        this.fadeOutRate = 0.0005; // Rate at which alpha decreases
       }
 
       // Draw particle
@@ -66,8 +76,8 @@ const ParticlesBackground = () => {
         const y = Math.random() * canvas.height; // Random y position within canvas height
         const color = 'rgba(255, 255, 255, 0.7)'; // Particle color with opacity
         const velocity = {
-          x: (Math.random() - 0.5), // Random x velocity between -1 and 1
-          y: (Math.random() - 0.5)  // Random y velocity between -1 and 1
+          x: (Math.random() - 0.5) * 2, // Random x velocity between -1 and 1
+          y: (Math.random() - 0.5) * 2 // Random y velocity between -1 and 1
         };
 
         particles.push(new Particle(x, y, radius, color, velocity));
@@ -111,30 +121,17 @@ const ParticlesBackground = () => {
       });
     }
 
-    // Resize canvas on window resize
-    window.addEventListener('resize', handleResize);
-
-    function handleResize() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      // Adjust particle positions if they are outside new canvas dimensions
-      particles.forEach(particle => {
-        if (particle.x > canvas.width) particle.x = canvas.width;
-        if (particle.y > canvas.height) particle.y = canvas.height;
-      });
-
-      init(); // Reinitialize particles after resize
-    }
-
     // Initialize particles and start animation
     init();
     animate();
 
+    // Resize canvas on window resize
+    window.addEventListener('resize', resizeCanvas);
+
     // Cleanup on unmount
     return () => {
       particles = [];
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener('resize', resizeCanvas);
     };
   }, []);
 
