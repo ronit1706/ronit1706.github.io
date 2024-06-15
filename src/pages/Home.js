@@ -20,7 +20,7 @@ function Home() {
             </div>
           </div>
           <div className='download-resume'>
-            <a href="../assets/Ronit_Khurana_Resume.pdf" className="btn" download>Download Resume</a>
+            <a href="https://drive.google.com/uc?export=download&id=1sBAd7CMTCsIEhdBOHi56y6TkFiISo6qN" className="btn" download>Download Resume</a>
           </div>
 
           <div className="social-icons">
