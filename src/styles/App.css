@@ -421,6 +421,20 @@ body {
   top: 130px;
   left: 40px;
   font-size: 30px;
-  color: #f1f1f1; /* Adjust color as per your design */
+  color: #f1f1f1; 
   cursor: pointer;
+}
+
+.App {
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
