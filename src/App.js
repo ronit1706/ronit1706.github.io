@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import './styles/App.css';
 import Skills from './pages/Skills';
 import Soft_Skills from './pages/Soft_Skills';
+import Certifications from './pages/Certifications';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/skills" element={<Skills />} />
             <Route path="/soft_skills" element={<Soft_Skills />} />
+            <Route path="/certifications" element={<Certifications />} />
           </Routes>
         </main>
       </div>

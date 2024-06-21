@@ -6,12 +6,16 @@ import ParticlesBackground from '../components/ParticlesBackground';
 
 function About() {
     return (
-      <>
-      <ParticlesBackground />
+        <>
+        <ParticlesBackground />
         <div className='page-hero' id="about">
+        <div className='certifications'>
+                        <Link to="/certifications" className="btn">Certifications</Link>
+                    </div>
             <AnimatedHeading text="About Me" />
             <div className="about-sections">
                 <div className='about-section'>
+                    
                     <h1>Education</h1>
                     <p className='head'>University of Petroleum and Energy Studies</p>
                     <p>B.Tech(H) in Computer Science (Spl. AIML) 2021-2025 | GPA: 7.83</p>
@@ -27,12 +31,13 @@ function About() {
                     </ul>
                     <p className='head'>Personal Interests:</p>
                     <ul>
-                        <li>Sketching: Enjoy creating detailed sketches and exploring various artistic techniques.</li>
-                        <li>Playing Guitar: Passionate about playing the guitar and experimenting with different genres of music.</li>
-                        <li>Football: Active participant in local football leagues and enjoy the teamwork and physical activity involved.</li>
+                        <li>Sketching and Illustration: Enjoy creating detailed sketches and exploring various artistic techniques.</li>
+                        <li>Guitar Playing: Passionate about playing the guitar and experimenting with different genres of music.</li>
+                        <li>Football: Active participant in local football games and enjoy the teamwork and physical activity involved.</li>
                     </ul>
                 </div>
                 <div className="about-section">
+                    
                     <Experience />
                     <br />
                     <br />
