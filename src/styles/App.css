@@ -39,7 +39,12 @@ body {
 
 /* Navbar Styles */
 .navbar {
-  font-family: JetBrains Mono, monospace;
+  font-family: 'JetBrains Mono', monospace;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   background-color: black;
   color: #ffffff;
   display: flex;
@@ -199,6 +204,7 @@ body {
   margin-bottom: 20px;
 }
 
+
 .project-card a {
   position: absolute;
   bottom: 20px;
@@ -241,6 +247,15 @@ body {
   padding: 20px 0;
   background-color: #151515;
   color: #ffffff;
+}
+
+.logo-img {
+  height: 40px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo-img:hover {
+  transform: scale(1.1);
 }
 
 .logo h1 a {
