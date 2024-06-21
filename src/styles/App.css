@@ -114,9 +114,10 @@ body {
   margin: 10px;
   padding: 10px 20px;
   font-size: 1rem;
+  
   border: 2px solid #121212;
   background-color: #64ffda;
-  /* color: #64ffda; */
+  color: #000000;
   text-decoration: none;
   border-radius: 8px;
   transition: background-color 0.3s, color 0.3s;
@@ -156,6 +157,15 @@ body {
   margin-bottom: 20px;
 }
 
+.contact-info a {
+  color: inherit; /* Inherits the color from the parent element */
+  text-decoration: none; /* Removes the underline */
+}
+
+.contact-info a:hover {
+  text-decoration: underline; /* Adds an underline on hover for better UX */
+}
+
 /* Projects Section Styles */
 .projects {
   padding-left: 20px;
@@ -164,6 +174,8 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   gap: 20px;
 }
+
+
 
 .project-card {
   margin: auto;

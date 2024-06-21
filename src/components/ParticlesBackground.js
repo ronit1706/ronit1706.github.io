@@ -31,7 +31,7 @@ const ParticlesBackground = () => {
         this.color = color;
         this.velocity = velocity;
         this.alpha = 1; // Transparency for trailing effect
-        this.fadeOutRate = 0.0005; // Rate at which alpha decreases
+        this.fadeOutRate = 0.0000; // Rate at which alpha decreases
       }
 
       draw() {
@@ -70,7 +70,7 @@ const ParticlesBackground = () => {
         const radius = Math.random() * 2 + 0.5;
         const x = Math.random() * canvas.width;
         const y = Math.random() * canvas.height;
-        const color = 'rgba(255, 255, 255, 0.7)';
+        const color = 'rgba(200, 200, 200, 0.7)';
         const velocity = {
           x: (Math.random() - 0.5) * 2,
           y: (Math.random() - 0.5) * 2
@@ -106,7 +106,7 @@ const ParticlesBackground = () => {
             ctx.beginPath();
             ctx.moveTo(p1.x, p1.y);
             ctx.lineTo(p2.x, p2.y);
-            ctx.strokeStyle = 'rgba(255, 255, 255, 0.01)';
+            ctx.strokeStyle = 'rgba(200, 200, 200, 0.01)';
             ctx.stroke();
           }
         });
