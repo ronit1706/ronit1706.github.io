@@ -1,17 +1,45 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faStackOverflow, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { Link } from 'react-router-dom';
+import Lottie from 'react-lottie'; // Import react-lottie
+import underlineAnimation from '../assets/underline.json'; // Import your underline.json file
 import ParticlesBackground from '../components/ParticlesBackground';
 
 function Home() {
+  const [isStopped, setIsStopped] = useState(true);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsStopped(false);
+      setIsVisible(true);
+    }, 2000);
+
+    return () => clearTimeout(timer); // Cleanup the timer if the component unmounts
+  }, []);
+  
+  const underlineOptions = {
+    loop: false,
+    autoplay: false,
+    animationData: underlineAnimation,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
+
   return (
     <>
       <ParticlesBackground />
       <div className="home">
         <div className="hero">
           <h1 className='hero-heading1'>HI;</h1>
-          <h1 className='hero-heading2'>I'M RONIT KHURANA</h1>
+          <div className='hero-heading2-container'>
+            <h1 className='hero-heading2'>I'M RONIT KHURANA</h1>
+            <div className="underline-animation">
+              <Lottie options={underlineOptions} height={40} width={'100%'} isStopped = {isStopped} style={{visibility: isVisible ? 'visible' : 'hidden'}}/>
+            </div>
+          </div>
           <p className='hero-subtitle'>Computer Science Student with a zeal for problem solving, constantly seeking opportunities to hone my skills</p>
           <div>
             <div className='hero-btns'>

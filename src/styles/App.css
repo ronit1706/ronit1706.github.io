@@ -30,11 +30,10 @@ body {
   padding-left: 20px;
   padding-bottom: 50px;
   font-size: 4rem;
-  /* padding-top: 30px; */
 }
 
 .about-section {
-  flex-basis: 48%; /* Adjust as needed */
+  flex-basis: 48%;
 }
 
 /* Navbar Styles */
@@ -49,10 +48,10 @@ body {
   color: #ffffff;
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Ensure vertical centering */
-  padding: 20px 50px; /* Add some padding on the left and right */
+  align-items: center;
+  padding: 20px 50px;
   width: 100%;
-  box-sizing: border-box; /* Include padding and border in the element's total width */
+  box-sizing: border-box;
 }
 
 .navbar h1 {
@@ -81,26 +80,23 @@ body {
 }
 
 /* Hero Section Styles */
-.hero, .page-hero{
+.hero, .page-hero {
   position: relative;
   font-family: JetBrains Mono, monospace;
   text-align: left;
   padding: 100px 50px;
-  background: linear-gradient(45deg,#141414, #000000);
+  background: linear-gradient(45deg, #141414, #000000);
   background-size: 250% 250%;
-  animation:  gradientAnimation 30s infinite;
+  animation: gradientAnimation 30s infinite;
   background-position: center;
   margin: 40px 20px;
   border-radius: 8px;
   height: 80vh;
 }
 
-
-.page-hero{
+.page-hero {
   padding: 50px 50px;
-
 }
-
 
 .btn {
   display: inline-block;
@@ -120,7 +116,6 @@ body {
   margin: 10px;
   padding: 10px 20px;
   font-size: 1rem;
-  
   border: 2px solid #121212;
   background-color: #64ffda;
   color: #000000;
@@ -139,10 +134,10 @@ body {
   color: #000000;
 }
 
-
 .hero-btns {
   padding-top: 20px;
 }
+
 /* About Section Styles */
 .about-content {
   background-color: #000000;
@@ -164,12 +159,12 @@ body {
 }
 
 .contact-info a {
-  color: inherit; /* Inherits the color from the parent element */
-  text-decoration: none; /* Removes the underline */
+  color: inherit;
+  text-decoration: none;
 }
 
 .contact-info a:hover {
-  text-decoration: underline; /* Adds an underline on hover for better UX */
+  text-decoration: underline;
 }
 
 /* Projects Section Styles */
@@ -180,8 +175,6 @@ body {
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   gap: 20px;
 }
-
-
 
 .project-card {
   position: relative;
@@ -204,12 +197,10 @@ body {
   margin-bottom: 20px;
 }
 
-
 .project-card a {
   position: absolute;
   bottom: 20px;
   left: 20px;
-
   display: inline-block;
   padding: 10px 20px;
   background-color: #64ffda;
@@ -281,20 +272,17 @@ body {
   padding-right: 20px;
 }
 
-.download-resume, .certifications{
+.download-resume, .certifications {
   position: absolute;
   top: 20px;
   right: 20px;
   padding-right: 20px;
-
 }
 
-
-
 .social-icon {
-  font-size: 2em; /* Adjust the size as needed */
-  color: white; /* Set the color to white */
-  margin-left: 10px; /* Add some space between icons */
+  font-size: 2em;
+  color: white;
+  margin-left: 10px;
 }
 
 .hero h1, .hero h2, .hero p {
@@ -305,8 +293,8 @@ body {
   overflow: hidden;
   white-space: nowrap;
   animation: typing 3s steps(100, end), color-change forwards;
-  position: relative; /* Add relative positioning */
-  color: transparent; /* Hide the text */
+  position: relative;
+  color: transparent;
 }
 
 .hero-heading1 {
@@ -322,11 +310,44 @@ body {
   margin-bottom: 50px;
 }
 
+.hero-heading2-container {
+  position: relative;
+}
+
+.underline-animation {
+  animation-delay: 2s;
+  position: absolute;
+  left: 320px;
+  bottom: -5px;
+  width: 750px;
+  height: 35px;
+}
+
 .hero-subtitle {
   font-size: 1.2rem;
   animation: typing3 3s steps(50, end), color-change forwards;
   animation-delay: 2s;
   margin-bottom: 50px;
+}
+
+.hero-heading2-underline {
+  display: inline-block;
+  position: relative;
+}
+
+.hero-heading2-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  width: 0;
+  height: 5px;
+  background-color: #64ffda;
+  transition: width 1s ease-in-out;
+}
+
+.hero-heading2-underline:hover::after {
+  width: 100%;
 }
 
 #animated-heading {
@@ -339,13 +360,13 @@ body {
 
 #animated-heading span {
   display: inline-block;
-  opacity: 0; /* Start invisible */
+  opacity: 0;
   transform: rotateX(0deg);
   transition: opacity 0.2s ease-in;
 }
 
 #animated-heading span.visible {
-  opacity: 1; /* Become visible during the animation */
+  opacity: 1;
 }
 
 .head {
@@ -356,6 +377,7 @@ body {
   margin-bottom: 10px;
   margin-top: 20px;
 }
+
 /* src/components/SkillBar.css */
 .skill {
   margin: 20px 0;
@@ -405,47 +427,69 @@ body {
 
 @keyframes shine {
   0% {
-      right: 100%;
-      opacity: 0;
+    right: 100%;
+    opacity: 0;
   }
   50% {
-      right: 50%;
-      opacity: 1;
+    right: 50%;
+    opacity: 1;
   }
   100% {
-      right: 0;
-      opacity: 0;
+    right: 0;
+    opacity: 0;
   }
 }
 
 @keyframes typing1 {
-  0% { width: 0; }
-  100% { width: 10%} /* Remove the cursor at the end of the animation */
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 10%;
+  }
 }
 
 @keyframes typing2 {
-  0% { width: 0; }
-  100% { width: 60%} /* Remove the cursor at the end of the animation */
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 60%;
+  }
 }
 
 @keyframes typing3 {
-  0% { width: 0; }
-  100% { width: 90%} /* Remove the cursor at the end of the animation */
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 90%;
+  }
 }
 
 @keyframes color-change {
-  0% { color: transparent; }
-  100% { color: white; } /* Change the color to the initial color */
+  0% {
+    color: transparent;
+  }
+  100% {
+    color: white;
+  }
 }
 
 @keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-subtitle.typing-done::after, .hero-heading1.typing-done::after, .hero-heading2.typing-done::after {
-  animation: none; /* Stop the blinking after typing */
+  animation: none;
 }
 
 @font-face {
@@ -455,10 +499,10 @@ body {
 
 .back-icon {
   position: absolute;
-  top: 130px;
-  left: 40px;
+  top: 20px;
+  left: 20px;
   font-size: 30px;
-  color: #f1f1f1; 
+  color: #f1f1f1;
   cursor: pointer;
 }
 
